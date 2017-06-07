@@ -45,3 +45,6 @@ u_dateR(path = "Z:/DEC/working/QA...", archive = FALSE, pat = ".jpeg")
 }
 
 }
+\author{
+Bart Huntley, \email{bart.huntley@dpaw.wa.gov.au}
+}
