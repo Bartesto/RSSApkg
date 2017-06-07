@@ -2,7 +2,7 @@
 % Please edit documentation in R/RSSA_utils.R
 \name{u_leapR}
 \alias{u_leapR}
-\title{Renames incorrect image date folders when incorrect due to leap year errors.}
+\title{Renames incorrectly named leap year image date folders.}
 \usage{
 u_leapR(path)
 }
@@ -23,4 +23,8 @@ folder naming errors propogated by batch processing.
 \dontrun{
 u_leapR("W:/usgs/115078")
 }
+
+}
+\author{
+Bart Huntley, \email{bart.huntley@dpaw.wa.gov.au}
 }
