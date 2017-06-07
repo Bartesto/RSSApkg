@@ -1,11 +1,14 @@
 Package: RSSApkg
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Utility functions for remote sensing and spatial analysis work
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Date: 2017-06-07
+Authors@R: person("Bart", "Huntley", email = "bart.huntley@dpaw.wa.gov.au", 
+    role = c("aut", "cre"))
+Description: Functions to aid with processing satellite imagery and other 
+    spatial data.
+Depends: R (>= 3.3.2)
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
