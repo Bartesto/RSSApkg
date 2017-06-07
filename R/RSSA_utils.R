@@ -1,6 +1,6 @@
 # utility helper functions
 
-#' Renames incorrect image date folders when incorrect due to leap year errors.
+#' Renames incorrectly named leap year image date folders.
 #'
 #' \code{u_leapR} reads the date of a suncorrected image, checks it against the
 #' folder name and if incorrect, renames the folder. This corrects for leap year
@@ -12,10 +12,15 @@
 #'     earlier, otherwise a message "No leap date folder errors" is printed to
 #'     screen.
 #'
+#' @author Bart Huntley, \email{bart.huntley@@dpaw.wa.gov.au}
+#'
 #' @examples
 #' \dontrun{
 #' u_leapR("W:/usgs/115078")
 #' }
+#'
+#' @export
+#' @import lubridate
 
 u_leapR <- function(path){
   allfiles <- list.files(path = path, recursive = TRUE)
@@ -79,6 +84,8 @@ u_leapR <- function(path){
 #' u_dateR(path = "Z:/DEC/working/QA...", archive = FALSE, pat = ".jpeg")
 #' }
 #'
+#' @author Bart Huntley, \email{bart.huntley@@dpaw.wa.gov.au}
+#'
 #' @export
 #' @import lubridate
 
@@ -101,3 +108,41 @@ u_dateR <- function(path, archive, pat = ".jpeg"){
     return(datesdf)
   }
 }
+
+#' A tool for splitting ESRI shape files
+#'
+#' \code{u_shpsplitR} takes an ESRI shape file and splits it into multiple shape
+#' files based on unique entries in a field of the attribute table.
+#'
+#' @param pathin Character string filepath to the location of the shape file.
+#' @param pathout Character string filepath to the write location.
+#' @param shp Character string of the name of the shape file (no extension).
+#' @param shp.ID Character string of the name of the field in the attribute
+#' table of the shape file that contains the unique entries (e.g.site numbers).
+#'
+#' @return Creates multiple ESRI shape files each named after the unique entry
+#' found in 'shp.ID'.
+#'
+#' @author Bart Huntley, \email{bart.huntley@@dpaw.wa.gov.au}
+#'
+#' @examples
+#' \dontrun{
+#' u_shpsplitR("plot_locations", "Plot_ID")
+#' }
+#'
+#'
+#' @export
+#' @import sp rgdal
+
+u_shpsplitR <- function(pathin = ".", pathout = ".", shp, shp.ID){
+  data <-  rgdal::readOGR(dsn = pathin, shp)
+  unique <- unique(data@data[,shp.ID])
+  sites <- as.character(unique)
+  for(i in 1:length(sites)){
+    tmp <- data[data@data[,shp.ID] == sites[i], ]
+    rgdal::writeOGR(tmp, dsn = pathout, sites[i], driver = "ESRI Shapefile",
+             overwrite_layer = TRUE)
+  }
+}
+
+
