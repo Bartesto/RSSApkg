@@ -4,21 +4,23 @@
 \alias{u_shpsplitR}
 \title{A tool for splitting ESRI shape files}
 \usage{
-u_shpsplitR(pathin = ".", pathout = ".", shp, shp.ID)
+u_shpsplitR(pathin = ".", pathout = "./site_vectors", layer, attrb)
 }
 \arguments{
 \item{pathin}{Character string filepath to the location of the shape file.}
 
 \item{pathout}{Character string filepath to the write location.}
 
-\item{shp}{Character string of the name of the shape file (no extension).}
+\item{layer}{Character string of the name of the shape file (no extension).}
 
-\item{shp.ID}{Character string of the name of the field in the attribute
+\item{attrb}{Character string of the name of the field in the attribute
 table of the shape file that contains the unique entries (e.g.site numbers).}
 }
 \value{
 Creates multiple ESRI shape files each named after the unique entry
-found in 'shp.ID'.
+found in 'attrb' and saves them to a folder (defaults to "site_vectors"). It
+will also write a text file with the name of the original layer file used and
+output names of new layers created to screen or to object if created.
 }
 \description{
 \code{u_shpsplitR} takes an ESRI shape file and splits it into multiple shape
@@ -26,9 +28,8 @@ files based on unique entries in a field of the attribute table.
 }
 \examples{
 \dontrun{
-u_shpsplitR("plot_locations", "Plot_ID")
+u_shpsplitR(layer = "plot_locations", attrb = "Plot_ID")
 }
-
 
 }
 \author{

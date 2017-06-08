@@ -20,7 +20,7 @@
 #' }
 #'
 #' @export
-#' @import lubridate
+#' @importFrom lubridate ymd dmy
 
 u_leapR <- function(path){
   allfiles <- list.files(path = path, recursive = TRUE)
@@ -87,7 +87,7 @@ u_leapR <- function(path){
 #' @author Bart Huntley, \email{bart.huntley@@dpaw.wa.gov.au}
 #'
 #' @export
-#' @import lubridate
+#' @importFrom lubridate ymd
 
 u_dateR <- function(path, archive, pat = ".jpeg"){
   if(archive == TRUE){
@@ -116,33 +116,37 @@ u_dateR <- function(path, archive, pat = ".jpeg"){
 #'
 #' @param pathin Character string filepath to the location of the shape file.
 #' @param pathout Character string filepath to the write location.
-#' @param shp Character string of the name of the shape file (no extension).
-#' @param shp.ID Character string of the name of the field in the attribute
+#' @param layer Character string of the name of the shape file (no extension).
+#' @param attrb Character string of the name of the field in the attribute
 #' table of the shape file that contains the unique entries (e.g.site numbers).
 #'
 #' @return Creates multiple ESRI shape files each named after the unique entry
-#' found in 'shp.ID'.
+#' found in 'attrb' and saves them to a folder (defaults to "site_vectors"). It
+#' will also write a text file with the name of the original layer file used and
+#' output names of new layers created to screen or to object if created.
 #'
 #' @author Bart Huntley, \email{bart.huntley@@dpaw.wa.gov.au}
 #'
 #' @examples
 #' \dontrun{
-#' u_shpsplitR("plot_locations", "Plot_ID")
+#' u_shpsplitR(layer = "plot_locations", attrb = "Plot_ID")
 #' }
 #'
-#'
 #' @export
-#' @import sp rgdal
+#' @importFrom  rgdal readOGR writeOGR
 
-u_shpsplitR <- function(pathin = ".", pathout = ".", shp, shp.ID){
-  data <-  rgdal::readOGR(dsn = pathin, shp)
-  unique <- unique(data@data[,shp.ID])
-  sites <- as.character(unique)
+u_shpsplitR <- function(pathin = ".", pathout = "./site_vectors", layer, attrb){
+  if(!file.exists("site_vectors")){ dir.create("site_vectors")}
+  data <-  rgdal::readOGR(dsn = pathin, layer)
+  sites <- as.character(unique(data@data[,attrb]))
   for(i in 1:length(sites)){
-    tmp <- data[data@data[,shp.ID] == sites[i], ]
+    tmp <- data[data@data[,attrb] == sites[i], ]
     rgdal::writeOGR(tmp, dsn = pathout, sites[i], driver = "ESRI Shapefile",
-             overwrite_layer = TRUE)
+                    overwrite_layer = TRUE)
+    write.table(layer, paste0(pathout, "/OriginShapeFile.txt"),
+                row.names = FALSE, quote = FALSE, col.names = FALSE)
   }
+  return(sites)
 }
 
 
