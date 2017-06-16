@@ -109,7 +109,7 @@ u_dateR <- function(path, archive, pat = ".jpeg"){
   }
 }
 
-#' A tool for splitting ESRI shape files
+#' A tool for splitting ESRI shape files.
 #'
 #' \code{u_shpsplitR} takes an ESRI shape file and splits it into multiple shape
 #' files based on unique entries in a field of the attribute table.

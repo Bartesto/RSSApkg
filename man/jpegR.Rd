@@ -27,8 +27,8 @@ be in the form "dmY" or "dmy" and can include separators. Defaults to NA so
 image search ends with latest available image in the RSSA archive.}
 
 \item{combo}{Numerics representing bands to place in RGB channels of the jpeg.
-Must be of the form c(Ni, Nj, Nk) where Ni is the band number for the red
-channel etc.}
+Must be of the form c(N\emph{r}, N\emph{g}, N\emph{b}) where N\emph{r} is the
+band number for the red channel etc.}
 
 \item{buffer}{Numeric representing how much to buffer out the site to control
 zoom level for jpegs. If imagery crs is projected, number represents metres.
