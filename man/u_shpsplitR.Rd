@@ -2,7 +2,7 @@
 % Please edit documentation in R/RSSA_utils.R
 \name{u_shpsplitR}
 \alias{u_shpsplitR}
-\title{A tool for splitting ESRI shape files}
+\title{A tool for splitting ESRI shape files.}
 \usage{
 u_shpsplitR(pathin = ".", pathout = "./site_vectors", layer, attrb)
 }
