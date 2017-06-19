@@ -156,9 +156,9 @@ imdir <- "W:/usgs/108083"
 option <- "i35"
 attrb <- "WCode"
 setwd(wdir)
-extract(wdir, imdir, option, attrb)
+extractR(wdir, imdir, option, attrb)
 
-extract <- function(wdir = ".", imdir, option, attrb){
+extractR <- function(wdir, imdir, option, attrb){
   #function for right substring
   substrRight <- function(x, n){
     substr(x, nchar(x)-n+1, nchar(x))
@@ -293,15 +293,18 @@ extract <- function(wdir = ".", imdir, option, attrb){
   ## Combine all results in one data source ####################################
 
   #combine all data into 1 csv
-  #get all poss image dates
+  #get all poss image dates and subset to match data range
+  first_elems <- unlist(lapply(jlist, head, n = 1L))
+  first_date <- lubridate::ymd(sort(substrRight(first_elems, 8))[1])
+  last_elems <- unlist(lapply(jlist, tail, n = 1L))
+  last_date <- lubridate::ymd(sort(substrRight(last_elems, 8),
+                                         decreasing = TRUE))[1]
 
-  unlist(lapply(jlist, "[[", 1))
-  last_elems <- unlist(lapply(jlist, head, n = 1L))
-  endall <- sort(substrRight(last_elems, 8))
 
   allfolds <- suppressWarnings(lubridate::ymd(list.files(path = imdir)))
   alldates <- allfolds[!is.na(allfolds)]
-  alldat <- data.frame(date = as.character(alldates), stringsAsFactors = FALSE)
+  subdates <- alldates[alldates >= first_date & alldates <= last_date]
+  alldat <- data.frame(date = as.character(subdates), stringsAsFactors = FALSE)
 
 
   for(n in seq_along(resultslist)){
