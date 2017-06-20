@@ -82,7 +82,7 @@ jpegR <- function(wdir, imdir, layer, attrb, start=NA, stop=NA, combo,
 
   #make the jpegs
   for (i in seq_along(shpnames)){
-    shp <- rgdal::readOGR(dsn = "./site_vectors", shpnames[i])
+    shp <- rgdal::readOGR(dsn = paste0(wdir, "/site_vectors"), shpnames[i])
     shp_t <- sp::spTransform(shp, proj)
     ext <- raster::extent(shp_t) + buffer
     beg <- todo[1, 2]
