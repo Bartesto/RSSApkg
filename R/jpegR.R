@@ -87,7 +87,7 @@ jpegR <- function(wdir, imdir, layer, attrb, start=NA, stop=NA, combo,
     ext <- raster::extent(shp_t) + buffer
     beg <- todo[1, 2]
     end <- todo[length(todo[, 2]), 2]
-    folder <- paste0("jpegs_site_", shpnames[i], "_", beg, "-", end)
+    folder <- paste0(wdir, "/jpegs_site_", shpnames[i], "_", beg, "-", end)
     if (!file.exists(folder)){
       dir.create(folder)
       }
