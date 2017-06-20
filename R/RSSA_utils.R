@@ -135,7 +135,8 @@ u_dateR <- function(path, archive, pat = ".jpeg"){
 #' @export
 #' @importFrom  rgdal readOGR writeOGR
 
-u_shpsplitR <- function(pathin, pathout = "./site_vectors", layer, attrb){
+u_shpsplitR <- function(pathin, pathout = paste0(pathin, "/site_vectors"),
+                        layer, attrb){
   if (!file.exists("site_vectors")){
     dir.create("site_vectors")
     }
