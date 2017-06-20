@@ -93,7 +93,7 @@ jpegR <- function(wdir, imdir, layer, attrb, start=NA, stop=NA, combo,
       }
     for (j in seq_along(todo[, 1])){
       date <- todo[j, "dates"]
-      jname <- paste0(date, "-", paste(combo, collapse = ""), ".jpeg")
+      jname <- paste0(date, "-", paste(combo, collapse = ""), ".jpg")
       fname <- paste0(folder, "/", jname)
       img <- todo[j, "path"]
       rstack <- raster::stack(img)
