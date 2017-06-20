@@ -8,6 +8,13 @@ Authors@R: person("Bart", "Huntley", email = "bart.huntley@dpaw.wa.gov.au",
 Description: Functions to aid with processing satellite imagery and other 
     spatial data.
 Depends: R (>= 3.3.2)
+Imports:
+    dplyr,
+    lubridate,
+    raster,
+    rgdal,
+    sp,
+    stringr,
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
