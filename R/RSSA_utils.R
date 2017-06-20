@@ -44,7 +44,7 @@ u_leapR <- function(path){
     #rename folders
     file.rename(old_name, new_name)
   } else {
-    cat("No leap date folder errors")
+    cat("No leap date folder errors\n")
   }
 
 }
