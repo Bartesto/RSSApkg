@@ -22,8 +22,8 @@ This package must be installed from GitHub. You can use the following code to
 install it:
 ```{r, eval = FALSE}
 library(devtools)
-install_github("Bartesto/wk4pkg")
-library(wk4pkg)
+install_github("Bartesto/RSSApkg")
+library(RSSApkg)
 ```
 
 The package has dependencies with dplyr, lubridate, raster, rgdal, sp and 

@@ -10,8 +10,8 @@ This package must be installed from GitHub. You can use the following code to in
 
 ``` r
 library(devtools)
-install_github("Bartesto/wk4pkg")
-library(wk4pkg)
+install_github("Bartesto/RSSApkg")
+library(RSSApkg)
 ```
 
 The package has dependencies with dplyr, lubridate, raster, rgdal, sp and stringr. On installation you may be prompted to install additional packages.
