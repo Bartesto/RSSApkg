@@ -1,6 +1,6 @@
 #' Create small jpegs of satellite imagery.
 #'
-#' \code{jpegR} makes small jpeg images centred on and showing site locations
+#' \code{jpegR} makes small jpeg images centered on and showing site locations
 #' from a shape file. This function can be used as part of the cloud quality
 #' check process prior to extracting satellite bands or indices. Although
 #' designed to help the QA process the jpegs can be useful for quickly checking
@@ -58,19 +58,19 @@
 jpegR <- function(wdir=".", imdir, layer, attrb, start=NA, stop=NA, combo,
                   buffer = 2000){
   #split layer, get names
-  shpnames <- u_shpsplitR(layer = layer, attrb = attrb)
+  shpnames <- u_shpsplitR(pathin = wdir, layer = layer, attrb = attrb)
 
   #get folder/date imagery info
   alldo <- u_dateR(path = imdir, archive = TRUE)
   suppressWarnings(start <- lubridate::dmy(start))
   suppressWarnings(stop <- lubridate::dmy(stop))
-  todo <- if(!is.na(start) & !is.na(stop)){
+  todo <- if (!is.na(start) & !is.na(stop)){
     sub <- subset(alldo, dates >= start & dates <= stop)#start and stop
     sub
-  } else if(is.na(start) & !is.na(stop)){
+  } else if (is.na(start) & !is.na(stop)){
     sub <- subset(alldo, dates <= stop)#stop only
     sub
-  } else if(!is.na(start) & is.na(stop)){
+  } else if (!is.na(start) & is.na(stop)){
     sub <- subset(alldo, dates >= start)#start only
     sub
   } else {
@@ -78,22 +78,24 @@ jpegR <- function(wdir=".", imdir, layer, attrb, start=NA, stop=NA, combo,
   }
 
   #grab CRS of rasters for transform of layers
-  proj <- raster::crs(raster::raster(todo[1,1]))
+  proj <- raster::crs(raster::raster(todo[1, 1]))
 
   #make the jpegs
-  for(i in seq_along(shpnames)){
+  for (i in seq_along(shpnames)){
     shp <- rgdal::readOGR(dsn = "./site_vectors", shpnames[i])
     shp_t <- sp::spTransform(shp, proj)
     ext <- raster::extent(shp_t) + buffer
-    beg <- todo[1,2]
-    end <- todo[length(todo[,2]), 2]
+    beg <- todo[1, 2]
+    end <- todo[length(todo[, 2]), 2]
     folder <- paste0("jpegs_site_", shpnames[i], "_", beg, "-", end)
-    if(!file.exists(folder)){ dir.create(folder)}
-    for(j in seq_along(todo[,1])){
-      date <- todo[j,"dates"]
-      jname <- paste0(date, "-", paste(combo, collapse=""), ".jpeg")
+    if (!file.exists(folder)){
+      dir.create(folder)
+      }
+    for (j in seq_along(todo[, 1])){
+      date <- todo[j, "dates"]
+      jname <- paste0(date, "-", paste(combo, collapse = ""), ".jpeg")
       fname <- paste0("./", folder, "/", jname)
-      img <- todo[j,"path"]
+      img <- todo[j, "path"]
       rstack <- raster::stack(img)
       jpeg(filename = fname, width = 842, height = 870)
       raster::plotRGB(rstack, r = combo[1], g = combo[2], combo[3],

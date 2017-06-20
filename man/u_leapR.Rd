@@ -17,7 +17,7 @@ If incorrectly named folders are identified they are renamed a day
 \description{
 \code{u_leapR} reads the date of a suncorrected image, checks it against the
 folder name and if incorrect, renames the folder. This corrects for leap year
-folder naming errors propogated by batch processing.
+folder naming errors propagated by batch processing.
 }
 \examples{
 \dontrun{

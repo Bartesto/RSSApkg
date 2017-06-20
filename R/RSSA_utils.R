@@ -4,7 +4,7 @@
 #'
 #' \code{u_leapR} reads the date of a suncorrected image, checks it against the
 #' folder name and if incorrect, renames the folder. This corrects for leap year
-#' folder naming errors propogated by batch processing.
+#' folder naming errors propagated by batch processing.
 #'
 #' @param path Character string filepath to the path/row of imagery to check.
 #'
@@ -32,17 +32,17 @@ u_leapR <- function(path){
   #date for image
   ldate <- as.character(lubridate::dmy(substr(result, 21, 26)))
   #find mismatch
-  bad.fold.dates <- setdiff(fdate, ldate)
-  if(length(bad.fold.dates) > 0){
+  bad_fold_dates <- setdiff(fdate, ldate)
+  if (length(bad_fold_dates) > 0){
     #correct the folder names and path
-    corr.fold.dates <- lubridate::ymd(bad.fold.dates) - 1
-    corr.fold <- gsub("-", "", as.character(corr.fold.dates))
-    new.name <- paste0(path, "\\", corr.fold)
+    corr_fold_dates <- lubridate::ymd(bad_fold_dates) - 1
+    corr_fold <- gsub("-", "", as.character(corr_fold_dates))
+    new_name <- paste0(path, "\\", corr_fold)
     #old folder names and path to correct
-    bad.fold <- gsub("-", "", as.character(bad.fold.dates))
-    old.name <- paste0(path, "\\", bad.fold)
+    bad_fold <- gsub("-", "", as.character(bad_fold_dates))
+    old_name <- paste0(path, "\\", bad_fold)
     #rename folders
-    file.rename(old.name, new.name)
+    file.rename(old_name, new_name)
   } else {
     cat("No leap date folder errors")
   }
@@ -70,13 +70,13 @@ u_leapR <- function(path){
 #' @return For a USGS imagery archive the query will return a data frame with:
 #' \itemize{
 #'     \item path - a column of character string file paths
-#'     \item folds - a column of haracter string folder names
+#'     \item folds - a column of character string folder names
 #'     \item dates - a column of date class dates
 #'     }
 #' For a non-USGS archive the query will return a data frame with:
 #' \itemize{
 #'     \item path - a column of character string file paths
-#'     \item folds - a column of haracter string folder names
+#'     \item folds - a column of character string folder names
 #'     }
 #' @examples
 #' \dontrun{
@@ -90,7 +90,7 @@ u_leapR <- function(path){
 #' @importFrom lubridate ymd
 
 u_dateR <- function(path, archive, pat = ".jpeg"){
-  if(archive == TRUE){
+  if (archive == TRUE){
     u_leapR(path)
     prefolds <- list.files(path = path, pattern = "*pre.ers$", recursive = TRUE)
     ind <- grepl("^[[:digit:]]", prefolds)
@@ -136,11 +136,13 @@ u_dateR <- function(path, archive, pat = ".jpeg"){
 #' @importFrom  rgdal readOGR writeOGR
 
 u_shpsplitR <- function(pathin = ".", pathout = "./site_vectors", layer, attrb){
-  if(!file.exists("site_vectors")){ dir.create("site_vectors")}
+  if (!file.exists("site_vectors")){
+    dir.create("site_vectors")
+    }
   data <-  rgdal::readOGR(dsn = pathin, layer)
-  sites <- as.character(unique(data@data[,attrb]))
-  for(i in 1:length(sites)){
-    tmp <- data[data@data[,attrb] == sites[i], ]
+  sites <- as.character(unique(data@data[, attrb]))
+  for (i in 1:length(sites)){
+    tmp <- data[data@data[, attrb] == sites[i], ]
     rgdal::writeOGR(tmp, dsn = pathout, sites[i], driver = "ESRI Shapefile",
                     overwrite_layer = TRUE)
     write.table(layer, paste0(pathout, "/OriginShapeFile.txt"),
@@ -148,5 +150,3 @@ u_shpsplitR <- function(pathin = ".", pathout = "./site_vectors", layer, attrb){
   }
   return(sites)
 }
-
-

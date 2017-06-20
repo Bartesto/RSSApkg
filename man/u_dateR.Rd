@@ -21,13 +21,13 @@ querying a QA jpeg folder or the like.}
 For a USGS imagery archive the query will return a data frame with:
 \itemize{
     \item path - a column of character string file paths
-    \item folds - a column of haracter string folder names
+    \item folds - a column of character string folder names
     \item dates - a column of date class dates
     }
 For a non-USGS archive the query will return a data frame with:
 \itemize{
     \item path - a column of character string file paths
-    \item folds - a column of haracter string folder names
+    \item folds - a column of character string folder names
     }
 }
 \description{

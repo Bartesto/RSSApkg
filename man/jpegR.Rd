@@ -39,7 +39,7 @@ Creates named folders, based on site location and dates of images
 processed, containing small jpeg images for visual assessment.
 }
 \description{
-\code{jpegR} makes small jpeg images centred on and showing site locations
+\code{jpegR} makes small jpeg images centered on and showing site locations
 from a shape file. This function can be used as part of the cloud quality
 check process prior to extracting satellite bands or indices. Although
 designed to help the QA process the jpegs can be useful for quickly checking

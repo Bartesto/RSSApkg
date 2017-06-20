@@ -19,7 +19,7 @@ extraction.}
 "ndvi", "b1", "b2", "b3", "b4", "b5", "b6".}
 
 \item{attrb}{A character string of the name of field in the attribute column
-of the shape file that contains the unique identifier for the shpae files.
+of the shape file that contains the unique identifier for the location.
 This must be the same as was used to create the jpegs and is usually the site
 ID.}
 }
