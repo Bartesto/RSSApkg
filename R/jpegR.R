@@ -55,7 +55,7 @@
 #' @importFrom lubridate dmy
 #' @importFrom sp spTransform
 #' @importFrom grDevices dev.off jpeg
-jpegR <- function(wdir=".", imdir, layer, attrb, start=NA, stop=NA, combo,
+jpegR <- function(wdir = ".", imdir, layer, attrb, start=NA, stop=NA, combo,
                   buffer = 2000){
   #split layer, get names
   shpnames <- u_shpsplitR(pathin = wdir, layer = layer, attrb = attrb)
