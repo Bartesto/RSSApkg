@@ -54,14 +54,14 @@ When called `jpegR()` will:
 identifier in the __attrb__ argument.
 1. Create a .txt file containing the name of the original shape file. 
 1. Will perform a check of the image directory to ensure all images have correct
-dates (checks agaisnt incorrectly dated leap years).
+dates (checks against incorrectly dated leap years).
 1. Creates a folder named after each new unique shape file and then using that 
 location as a centroid, creates a jpeg from all the satellite images conforming 
 to the supplied arguments.
 
 ##Uses
 The main purpose for the output jpegs is for checking image dates at site 
-locations for cloud artefacts prior to extracting pixel values for further 
+locations for cloud artifacts prior to extracting pixel values for further 
 analysis. This is an alternative method for image quality assessment which has 
 historically entailed cloud masking entire scenes prior to analysis.
 
