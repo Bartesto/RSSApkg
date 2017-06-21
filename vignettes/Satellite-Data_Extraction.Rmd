@@ -1,0 +1,25 @@
+---
+title: "Satellite data extraction workflow"
+author: "Bart Huntley"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Satellite data extraction workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+##Introduction
+One of the challenges of working in remote sensing and dealing with satellite 
+imagery is how to deal with clouds and shadows. There are various automated 
+routines that exist to aid the researcher such as:
+
+* Using a cloud filter option when downloading the imagery in the first instance.
+* Using an automated cloud masking algorithm such as __fmask__ as used by the 
+USGS.
+
+Although these tools are very useful they can be a bit "blunt" as an instrument.
+
+One of the benefits of the explosion of availability of satellite data is that 
+dense temporal analysis can now be performed. Phenological cycles can now be 
+modelled and monitored and using every suitable image 

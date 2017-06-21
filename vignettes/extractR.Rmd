@@ -1,0 +1,90 @@
+---
+title: "Extract satellite data for feature locations"
+author: "Bart Huntley"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Extract satellite data for feature locations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`extractR()` is a function that will extract mean pixel values from dates of 
+Landsat satellite imagery, from locations provided by shape file. It has been 
+optimized to work on USGS Landsat imagery that has been illumination corrected 
+and stored in a `date/satellite data` folder structure.
+
+```{r, eval = FALSE}
+extractR(wdir, imdir, option, attrb)
+```
+
+##Arguments
+* __wdir__ Path to working directory. This directory will include a folder 
+named `site_vectors` containing individual shape file features and a folder for 
+each unique shape file feature containing date named jpeg images. 
+
+* __imdir__ Path to local archive of satellite imagery at the path/row level.
+
+* __option__ A vegetation index or single band to be extracted from the imagery. 
+Can be __one of__  "i35", "ndvi", "b1", "b2", "b3", "b4", "b5" or "b6".
+
+* __attrb__ Name of the attribute table column heading which contains the unique
+identifier for the features. Commonly these is site names. 
+
+__NOTE:__ This function is to be run after `jpegR` and the common arguments 
+above should be the same as those used when running `jpegR`.
+
+##What it does
+When called `extract()` will:
+
+1. Copy each unique shape file to the appropriate jpeg folder.
+1. Obtain suitable dates of satellite imagery to access from the names of the 
+jpegs remaining in the jpeg folders.
+1. Will extract the mean vegetation index or band values for each unique shape 
+file from each suitable image date. It writes these values to .csv file and 
+stores in the appropriate jpeg folder.
+1. Collates all .csv files into one appropriately named .csv file. This file 
+contains all the extracted values for each of the unique shape files.
+
+##Uses
+The main purpose of this function is to extract mean values from satellite 
+imagery that has been quality assessed after using the function `jpegR`. This 
+function is optimised to extract values for dense time series analysis. This 
+function will work on any multiband imagery provided that:
+
+* The satellite data is stored in separate date folders (yyyymmdd).
+* Special care is used to identify the bands of interest. As some satellites 
+have different band designators to others, the vegetation indices i35 and NDVI, 
+may be incorrectly calculated. To be certain of the output when using for 
+non-Landsat data, use `extractR` to extract single bands and later combine to 
+calculate the desired index.
+
+##Example Output
+__NOTE__ re-running this function will overwrite any previous output if the date
+ranges are the same. Each output .csv will have the name of the beginning and 
+end dates of the imagery processed.
+
+For a single site the output .csv will be formatted:
+
+date        | site1
+------------|---------
+10/03/1999  | 73.11526
+26/03/1999  | 37.10274
+etc         | etc
+
+Note that this data set will never have any NA values as only suitable imagery 
+is processed.
+
+
+For the collated sites output the .csv will be formatted:
+
+..| date        | site1     | site2     | etc
+--|-------------|-----------|-----------|----
+1 | 10/03/1999  | 73.11526  | NA        | etc
+2 | 26/03/1999  | 37.10274  | 35.19674  | etc
+3 | 14/06/1999  | NA        | 44.44317  | etc
+
+Note this data set will contain NA values for location/date combinations that 
+were deemed unsuitable after using the `jpegR` function. This is most commonly
+due to cloud. Also note that the .csv will contain numbered rows. Other analysis 
+functions take this into consideration.

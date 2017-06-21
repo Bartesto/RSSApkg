@@ -1,0 +1,135 @@
+---
+title: "Create quality assessment jpegs"
+author: "Bart Huntley"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Create quality assessment jpegs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`jpegR()` is a function that will create a small jpeg of a location(s) from  
+available satellite imagery stored in a local archive. It has been optimized to 
+work on USGS Landsat imagery that has been illumination corrected and stored in
+a `date/satellite data` folder structure.
+
+```{r, eval = FALSE}
+jpegR(wdir, imdir, layer, attrb, start = NA, stop = NA, combo,
+  buffer = 2000)
+```
+
+##Arguments
+* __wdir__ Path to working directory. This directory will include a shape file
+which contains the location(s) of interest. 
+
+* __imdir__ Path to local archive of satellite imagery at the path/row level.
+
+* __layer__ Name of the shape file excluding the extension. Most common usage is 
+for polygon features of sites of interest but can also be point features.
+
+* __attrb__ Name of the attribute table column heading which contains the unique
+identifier for the features. Commonly these is site names.
+
+* __start__ Date to start imagery search. Defaults to none and therefore begins 
+with first locally available satellite image for the path/row.
+
+* __stop__ Date to end imagery search. Defaults to none and therefore ends with
+last locally available satellite image for the path/row.
+
+* __combo__ Three numbers representing the satellite bands to display in RGB 
+colour channels for the output jpegs. For example c(3, 2, 1) would be red green 
+and blue.
+
+* __buffer__ How far to buffer the shape file feature to create the extent for 
+cropping the satellite image. For example for a projected GDA94 MGA50 satellite 
+image, a buffer of 2000 would equate to a 2km buffer around the shape file 
+feature. Controls the 'zoom' level of the output jpegs.
+
+##What it does
+When called `jpegR()` will:
+
+1. Create a folder named `site_vectors` in the working directory.
+1. Split the original shape file into a separate shape file for each unique
+identifier in the __attrb__ argument.
+1. Create a .txt file containing the name of the original shape file. 
+1. Will perform a check of the image directory to ensure all images have correct
+dates (checks agaisnt incorrectly dated leap years).
+1. Creates a folder named after each new unique shape file and then using that 
+location as a centroid, creates a jpeg from all the satellite images conforming 
+to the supplied arguments.
+
+##Uses
+The main purpose for the output jpegs is for checking image dates at site 
+locations for cloud artefacts prior to extracting pixel values for further 
+analysis. This is an alternative method for image quality assessment which has 
+historically entailed cloud masking entire scenes prior to analysis.
+
+Although originally designed for cloud quality assessment other uses can include:
+
+* Rapid image assessment for impacts (fires, floods, deforestation, etc).
+
+* Narrowing down dates of impacts.
+
+* Creation of inputs for animations.
+
+##Example Output
+The below examples show jpegs created showing a polygon feature (in this case a 
+wetland) outlined in magenta.
+![__A cloud affected site displayed in false colour 542__](cloud.jpg)
+
+![__A non-cloud affected site displayed in false colour 542__](nocloud.jpg)
+
+
+
+
+
+
+
+<!-- Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format: -->
+
+<!-- - Never uses retina figures -->
+<!-- - Has a smaller default figure size -->
+<!-- - Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style -->
+
+<!-- ## Vignette Info -->
+
+<!-- Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette. -->
+
+<!-- ## Styles -->
+
+<!-- The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows: -->
+
+<!--     output:  -->
+<!--       rmarkdown::html_vignette: -->
+<!--         css: mystyles.css -->
+
+<!-- ## Figures -->
+
+<!-- The figure sizes have been customised so that you can easily put two images side-by-side.  -->
+
+<!-- ```{r, fig.show='hold'} -->
+<!-- plot(1:10) -->
+<!-- plot(10:1) -->
+<!-- ``` -->
+
+<!-- You can enable figure captions by `fig_caption: yes` in YAML: -->
+
+<!--     output: -->
+<!--       rmarkdown::html_vignette: -->
+<!--         fig_caption: yes -->
+
+<!-- Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**. -->
+
+<!-- ## More Examples -->
+
+<!-- You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`. -->
+
+<!-- ```{r, echo=FALSE, results='asis'} -->
+<!-- knitr::kable(head(mtcars, 10)) -->
+<!-- ``` -->
+
+<!-- Also a quote using `>`: -->
+
+<!-- > "He who gives up [code] safety for [code] speed deserves neither." -->
+<!-- ([via](https://twitter.com/hadleywickham/status/504368538874703872)) -->
