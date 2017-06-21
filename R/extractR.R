@@ -57,7 +57,7 @@ extractR <- function(wdir, imdir, option, attrb){
   jfolds <- list.files(path = wdir, pattern = "jpegs_site")
 
   #get vector folder
-  vfold <- "./site_vectors"
+  vfold <- paste0(wdir, "/site_vectors")
 
   #copy shape files to relevant QA folders
   shpfiles <- list.files(path = vfold, pattern = "*.shp$")
@@ -78,7 +78,7 @@ extractR <- function(wdir, imdir, option, attrb){
   names(jlist) <- jfolds
 
   for (j in seq_along(jfolds)){
-    jpegs <- list.files(path = paste0("./", jfolds[j]), pattern = "*.jpeg")
+    jpegs <- list.files(path = paste0(wdir, "/", jfolds[j]), pattern = "*.jpg")
     jdates <- substr(jpegs, 1, 10)
     ifolds <- stringr::str_replace_all(jdates, "[^[:alnum:]]", "")
     jlist[[j]] <- paste0(imdir, "/", ifolds)
@@ -91,7 +91,7 @@ extractR <- function(wdir, imdir, option, attrb){
   for (k in seq_along(jlist)){
     #get site shape file
     shpk <- shpnames[k]
-    sitesSHP <- rgdal::readOGR(dsn = paste0("./", names(jlist[k])), shpk)
+    sitesSHP <- rgdal::readOGR(dsn = paste0(wdir, "/", names(jlist[k])), shpk)
     rnames <- as.character(sitesSHP@data[, attrb])
 
     #get beginning and end dates
@@ -123,7 +123,7 @@ extractR <- function(wdir, imdir, option, attrb){
         imdat <- imfile[grepl("USG", imfile)]
       } else {
         imdat <- imfile
-        }
+      }
 
       #grab path row and date
       prow <- substr(imdat, 9, 14)
@@ -176,9 +176,9 @@ extractR <- function(wdir, imdir, option, attrb){
     }
 
     ## write out results per shp file
-    write.csv(file = paste0("./", jfolds[k], "/", prow, "_", option, "_", shpk,
-                            "_", beg, "-", end, ".csv"),
-              x = results, row.names = FALSE)
+    write.csv(file = paste0(wdir, "/", jfolds[k], "/", prow, "_", option, "_",
+                            shpk, "_", beg, "-", end, ".csv"), x = results,
+              row.names = FALSE)
     resultslist[[k]] <- results
 
   }
@@ -201,6 +201,6 @@ extractR <- function(wdir, imdir, option, attrb){
   for (n in seq_along(resultslist)){
     alldat <- dplyr::left_join(alldat, resultslist[[n]], "date")
   }
-  write.csv(x = alldat, file = paste0(prow, "_", option, "_QA_", beg, "-", end,
-                                      ".csv"))
+  write.csv(x = alldat, file = paste0(wdir, "/", prow, "_", option, "_QA_", beg,
+                                      "-", end, ".csv"))
 }
