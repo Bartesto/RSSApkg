@@ -22,3 +22,5 @@ RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL:  https://bartesto.github.io/RSSApkg, https://github.com/Bartesto/RSSApkg
+BugReports: https://github.com/Bartesto/RSSApkg/issues
