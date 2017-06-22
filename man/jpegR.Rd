@@ -4,7 +4,7 @@
 \alias{jpegR}
 \title{Create small jpegs of satellite imagery.}
 \usage{
-jpegR(wdir = ".", imdir, layer, attrb, start = NA, stop = NA, combo,
+jpegR(wdir, imdir, layer, attrb, start = NA, stop = NA, combo,
   buffer = 2000)
 }
 \arguments{
@@ -61,10 +61,15 @@ creating stills for animating. When run the function:
 }
 \examples{
 \dontrun{
-jpegR(wdir = "z:/working", imdir = "W:/usgs/115078", layer = "site_locations", attrb = "ID", start = "1/1/98", stop = "28-12-2009", combo = c(5,4,2), buffer = 2000)
+jpegR(wdir = "z:/working", imdir = "W:/usgs/115078", layer = "site_locations",
+attrb = "ID", start = "1/1/98", stop = "28-12-2009", combo = c(5,4,2),
+buffer = 2000)
 }
 
 }
 \author{
 Bart Huntley, \email{bart.huntley@dpaw.wa.gov.au}
+
+For more details see  \url{https://bartesto.github.io/RSSApkg/index.html}
+{the RSSApkg website}
 }

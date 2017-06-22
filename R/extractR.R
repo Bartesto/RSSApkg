@@ -33,7 +33,11 @@
 #' @return Creates individual .csv files for extracted values per shape file and
 #' another that collates them all.
 #'
+#'
 #' @author Bart Huntley, \email{bart.huntley@@dpaw.wa.gov.au}
+#'
+#' For more details see  \url{https://bartesto.github.io/RSSApkg/index.html}
+#' {the RSSApkg website}
 #'
 #' @examples
 #' \dontrun{

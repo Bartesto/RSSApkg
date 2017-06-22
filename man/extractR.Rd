@@ -53,4 +53,7 @@ extractR(wdir = "z:/working", imdir = "W:/usgs/115078", option = "i35", attrb = 
 }
 \author{
 Bart Huntley, \email{bart.huntley@dpaw.wa.gov.au}
+
+For more details see  \url{https://bartesto.github.io/RSSApkg/index.html}
+{the RSSApkg website}
 }
