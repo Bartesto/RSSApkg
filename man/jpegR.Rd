@@ -2,7 +2,7 @@
 % Please edit documentation in R/jpegR.R
 \name{jpegR}
 \alias{jpegR}
-\title{Create small jpegs of satellite imagery.}
+\title{Create small jpegs of satellite imagery for analysis.}
 \usage{
 jpegR(wdir, imdir, layer, attrb, start = NA, stop = NA, combo,
   buffer = 2000)

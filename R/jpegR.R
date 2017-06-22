@@ -1,4 +1,4 @@
-#' Create small jpegs of satellite imagery.
+#' Create small jpegs of satellite imagery for analysis.
 #'
 #' \code{jpegR} makes small jpeg images centered on and showing site locations
 #' from a shape file. This function can be used as part of the cloud quality
