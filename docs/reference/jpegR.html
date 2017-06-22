@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create small jpegs of satellite imagery. — jpegR â€¢ RSSApkg</title>
+<title>Create small jpegs of satellite imagery for analysis. — jpegR â€¢ RSSApkg</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -72,7 +72,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create small jpegs of satellite imagery.</h1>
+    <h1>Create small jpegs of satellite imagery for analysis.</h1>
     </div>
 
     
@@ -96,7 +96,7 @@ creating stills for animating. When run the function:</p><ol>
 </ol>
     
 
-    <pre class="usage"><span class='fu'>jpegR</span>(<span class='kw'>wdir</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='no'>imdir</span>, <span class='no'>layer</span>, <span class='no'>attrb</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>stop</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>combo</span>,
+    <pre class="usage"><span class='fu'>jpegR</span>(<span class='no'>wdir</span>, <span class='no'>imdir</span>, <span class='no'>layer</span>, <span class='no'>attrb</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>stop</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>combo</span>,
   <span class='kw'>buffer</span> <span class='kw'>=</span> <span class='fl'>2000</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
@@ -154,7 +154,9 @@ processed, containing small jpeg images for visual assessment.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='fu'>jpegR</span>(<span class='kw'>wdir</span> <span class='kw'>=</span> <span class='st'>"z:/working"</span>, <span class='kw'>imdir</span> <span class='kw'>=</span> <span class='st'>"W:/usgs/115078"</span>, <span class='kw'>layer</span> <span class='kw'>=</span> <span class='st'>"site_locations"</span>, <span class='kw'>attrb</span> <span class='kw'>=</span> <span class='st'>"ID"</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='st'>"1/1/98"</span>, <span class='kw'>stop</span> <span class='kw'>=</span> <span class='st'>"28-12-2009"</span>, <span class='kw'>combo</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>5</span>,<span class='fl'>4</span>,<span class='fl'>2</span>), <span class='kw'>buffer</span> <span class='kw'>=</span> <span class='fl'>2000</span>)
+  <span class='fu'>jpegR</span>(<span class='kw'>wdir</span> <span class='kw'>=</span> <span class='st'>"z:/working"</span>, <span class='kw'>imdir</span> <span class='kw'>=</span> <span class='st'>"W:/usgs/115078"</span>, <span class='kw'>layer</span> <span class='kw'>=</span> <span class='st'>"site_locations"</span>,
+  <span class='kw'>attrb</span> <span class='kw'>=</span> <span class='st'>"ID"</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='st'>"1/1/98"</span>, <span class='kw'>stop</span> <span class='kw'>=</span> <span class='st'>"28-12-2009"</span>, <span class='kw'>combo</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>5</span>,<span class='fl'>4</span>,<span class='fl'>2</span>),
+  <span class='kw'>buffer</span> <span class='kw'>=</span> <span class='fl'>2000</span>)
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -170,6 +172,9 @@ processed, containing small jpeg images for visual assessment.</p>
     <h2>Author</h2>
     
 Bart Huntley, <a href='mailto:bart.huntley@dpaw.wa.gov.au'>bart.huntley@dpaw.wa.gov.au</a>
+
+For more details see  <a href = 'https://bartesto.github.io/RSSApkg/index.html'>https://bartesto.github.io/RSSApkg/index.html</a>
+the RSSApkg website
 
   </div>
 </div>
