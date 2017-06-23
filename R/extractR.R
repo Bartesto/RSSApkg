@@ -34,7 +34,7 @@
 #' another that collates them all.
 #'
 #'
-#' @author Bart Huntley, \email{bart.huntley@@dpaw.wa.gov.au}
+#' @author Bart Huntley, \email{bart.huntley@dpaw.wa.gov.au}
 #'
 #' For more details see  \url{https://rspaw.github.io/RSSApkg/index.html}
 #' {the RSSApkg website}
