@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis-CI Build Status](https://travis-ci.org/Bartesto/RSSApkg.svg?branch=master)](https://travis-ci.org/Bartesto/RSSApkg) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Bartesto/RSSApkg?branch=master&svg=true)](https://ci.appveyor.com/project/Bartesto/RSSApkg)
-
+<!-- [![Travis-CI Build Status](https://travis-ci.org/Bartesto/RSSApkg.svg?branch=master)](https://travis-ci.org/Bartesto/RSSApkg) -->
+<!-- [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Bartesto/RSSApkg?branch=master&svg=true)](https://ci.appveyor.com/project/Bartesto/RSSApkg) -->
 RSSApkg
 -------
 
@@ -14,7 +14,7 @@ This package must be installed from GitHub. You can use the following code to in
 
 ``` r
 library(devtools)
-install_github("Bartesto/RSSApkg")
+install_github("RSPaW/RSSApkg")
 library(RSSApkg)
 ```
 
@@ -23,4 +23,4 @@ The package has dependencies with dplyr, lubridate, raster, rgdal, sp and string
 Help Files
 ----------
 
-All functions contained in RSSApkg have their own help files and there is also the [RSSApkg website](https://bartesto.github.io/RSSApkg/index.html) with help files and vignettes.
+All functions contained in RSSApkg have their own help files and there is also the [RSSApkg website](https://rspaw.github.io/RSSApkg/index.html) with help files and vignettes.
