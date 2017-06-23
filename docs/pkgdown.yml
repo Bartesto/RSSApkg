@@ -1,6 +1,10 @@
-reference_url: https://rspaw.github.io/RSSApkg/reference
+https://rspaw.github.io/RSSApkg/reference
 articles:
   extractR: extractR.html
   jpegR: jpegR.html
   Satellite-Data_Extraction: Satellite-Data_Extraction.html
+  
+urls:
+  reference: https://rspaw.github.io/RSSApkg/reference
+  article: https://rspaw.github.io/RSSApkg/articles
 
