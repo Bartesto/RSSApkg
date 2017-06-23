@@ -11,8 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 ```
-<!-- [![Travis-CI Build Status](https://travis-ci.org/Bartesto/RSSApkg.svg?branch=master)](https://travis-ci.org/Bartesto/RSSApkg) -->
-<!-- [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Bartesto/RSSApkg?branch=master&svg=true)](https://ci.appveyor.com/project/Bartesto/RSSApkg) -->
+[![Travis-CI Build Status](https://travis-ci.org/RSPaW/RSSApkg.svg?branch=master)](https://travis-ci.org/RSPaW/RSSApkg)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/RSPaW/RSSApkg?branch=master&svg=true)](https://ci.appveyor.com/project/RSPaW/RSSApkg)
 
 
 ##RSSApkg
