@@ -1,7 +1,7 @@
 Package: RSSApkg
 Type: Package
 Title: Utility functions for remote sensing and spatial analysis work
-Version: 0.1.0
+Version: 1.0.0
 Date: 2017-06-07
 Authors@R: person("Bart", "Huntley", email = "bart.huntley@dpaw.wa.gov.au", 
     role = c("aut", "cre"))

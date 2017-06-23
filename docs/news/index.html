@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • RSSApkg</title>
+<title>All news • RSSApkg</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -37,7 +37,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -78,81 +78,44 @@
       </header>
 
       <div class="row">
+
   <div class="col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;1.0.0</small>
-      </h1>
+      <h1>Change log <small>All releases</small></h1>
     </div>
 
     <div class="contents">
-      <table class="ref-index">
-
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
-
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-quality-assessment-and-extraction" class="hasAnchor"><a href="#section-quality-assessment-and-extraction" class="anchor"></a>Quality assessment and extraction</h2>
-            <p class="section-desc"><p>Make jpegs for image quality checking then extract good data.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="jpegR.html">jpegR</a></code> </p>
-          </td>
-          <td><p>Create small jpegs of satellite imagery for analysis.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="extractR.html">extractR</a></code> </p>
-          </td>
-          <td><p>Extracts mean values from Landsat imagery based on locations provided
-by shape files.</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-utilities" class="hasAnchor"><a href="#section-utilities" class="anchor"></a>Utilities</h2>
-            <p class="section-desc"><p>Handy helper functions for small tasks.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="u_dateR.html">u_dateR</a></code> </p>
-          </td>
-          <td><p>Creates a data frame of paths, folder names and dates.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="u_leapR.html">u_leapR</a></code> </p>
-          </td>
-          <td><p>Renames incorrectly named leap year image date folders.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="u_shpsplitR.html">u_shpsplitR</a></code> </p>
-          </td>
-          <td><p>A tool for splitting ESRI shape files.</p></td>
-        </tr>
-      </tbody>
-      </table>
+    <div id="rssapkg-1-0-0" class="section level1">
+<h1 class="hasAnchor">
+<a href="#rssapkg-1-0-0" class="anchor"></a>RSSApkg 1.0.0</h1>
+<div id="major-release" class="section level2">
+<h2 class="hasAnchor">
+<a href="#major-release" class="anchor"></a>Major Release:</h2>
+<p>The <code>RSSApkg</code> combines a number of internally used functions in the RSSA section of Parks and Wildlife (Western Australia). These will be added to over time as newly developed functions mature. They will be available in new minor releases.</p>
+<div id="changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#changes" class="anchor"></a>Changes:</h3>
+<ul>
+<li><p>All old functions involved with QA purpose have had a fresh update with a view to longeivity and generalisation.</p></li>
+<li><p><code>jpegR</code> is now faster and has options for date filtering to enable a more focused process. It also exports a txt file containg name of original shape file that was split for processing.</p></li>
+<li><p><code>extractR</code> output collated csv now restricted to min and max of extracted values.</p></li>
+<li><p>Utility functions <code>u_dateR</code>, <code>u_leapR</code> and <code>u_shpsplitR</code> which are used internally in jpegR and extractR are now available for use.</p></li>
+</ul>
+</div>
+</div>
+</div>
     </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-quality-assessment-and-extraction">Quality assessment and extraction</a></li>
-      <li><a href="#section-utilities">Utilities</a></li>
-    </ul>
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#rssapkg-1-0-0">1.0.0</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
       <footer>

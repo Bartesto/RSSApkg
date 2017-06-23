@@ -1,0 +1,19 @@
+url:  https://bartesto.github.io/RSSApkg
+
+template:
+  params:
+    bootswatch: cerulean
+
+reference:
+  - title: Quality assessment and extraction
+    desc:  Make jpegs for image quality checking then extract good data.
+    contents:
+    - jpegR
+    - extractR
+  - title: Utilities
+    desc: Handy helper functions for small tasks.
+    contents:
+    - u_dateR
+    - u_leapR
+    - u_shpsplitR
+
