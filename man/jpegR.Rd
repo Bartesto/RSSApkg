@@ -70,6 +70,6 @@ buffer = 2000)
 \author{
 Bart Huntley, \email{bart.huntley@dpaw.wa.gov.au}
 
-For more details see  \url{https://bartesto.github.io/RSSApkg/index.html}
+For more details see  \url{https://rspaw.github.io/RSSApkg/index.html}
 {the RSSApkg website}
 }

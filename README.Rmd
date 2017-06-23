@@ -11,8 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 ```
-[![Travis-CI Build Status](https://travis-ci.org/Bartesto/RSSApkg.svg?branch=master)](https://travis-ci.org/Bartesto/RSSApkg)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Bartesto/RSSApkg?branch=master&svg=true)](https://ci.appveyor.com/project/Bartesto/RSSApkg)
+<!-- [![Travis-CI Build Status](https://travis-ci.org/Bartesto/RSSApkg.svg?branch=master)](https://travis-ci.org/Bartesto/RSSApkg) -->
+<!-- [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Bartesto/RSSApkg?branch=master&svg=true)](https://ci.appveyor.com/project/Bartesto/RSSApkg) -->
 
 
 ##RSSApkg
@@ -25,7 +25,7 @@ This package must be installed from GitHub. You can use the following code to
 install it:
 ```{r, eval = FALSE}
 library(devtools)
-install_github("Bartesto/RSSApkg")
+install_github("RSPaW/RSSApkg")
 library(RSSApkg)
 ```
 
@@ -34,5 +34,5 @@ stringr. On installation you may be prompted to install additional packages.
 
 ##Help Files
 All functions contained in RSSApkg have their own help files and there is also 
-the [RSSApkg website](https://bartesto.github.io/RSSApkg/index.html) with help files 
+the [RSSApkg website](https://rspaw.github.io/RSSApkg/index.html) with help files 
 and vignettes.
