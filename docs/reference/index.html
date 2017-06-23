@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -97,24 +97,32 @@
       <tbody>
         <tr>
           <th colspan="2">
-            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-            <p class="section-desc"></p>
+            <h2 id="section-quality-assessment-and-extraction" class="hasAnchor"><a href="#section-quality-assessment-and-extraction" class="anchor"></a>Quality assessment and extraction</h2>
+            <p class="section-desc"><p>Make jpegs for image quality checking then extract good data.</p></p>
           </th>
         </tr>
         <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="extractR.html">extractR</a></code> </p>
-          </td>
-          <td><p>Extracts mean values from Landsat imagery based on locations provided
-by shape files.</p></td>
-        </tr><tr>
           <!--  -->
           <td>
             <p><code><a href="jpegR.html">jpegR</a></code> </p>
           </td>
           <td><p>Create small jpegs of satellite imagery for analysis.</p></td>
         </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="extractR.html">extractR</a></code> </p>
+          </td>
+          <td><p>Extracts mean values from Landsat imagery based on locations provided
+by shape files.</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-utilities" class="hasAnchor"><a href="#section-utilities" class="anchor"></a>Utilities</h2>
+            <p class="section-desc"><p>Handy helper functions for small tasks.</p></p>
+          </th>
+        </tr>
+        <tr>
           <!--  -->
           <td>
             <p><code><a href="u_dateR.html">u_dateR</a></code> </p>
@@ -141,7 +149,8 @@ by shape files.</p></td>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-quality-assessment-and-extraction">Quality assessment and extraction</a></li>
+      <li><a href="#section-utilities">Utilities</a></li>
     </ul>
   </div>
 </div>

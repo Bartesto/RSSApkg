@@ -20,7 +20,7 @@
 #'
 #' @param wdir Character string filepath to the working directory where the
 #' original shape files are located. This working directory must contain a
-#' folder named ./site_vectors" which contains the individual shape files for
+#' folder named "site_vectors" which contains the individual shape files for
 #' extraction.
 #' @param imdir Character string filepath to the path/row level for imagery.
 #' @param option A character string indicating one of the following "i35",

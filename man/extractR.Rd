@@ -10,7 +10,7 @@ extractR(wdir, imdir, option, attrb)
 \arguments{
 \item{wdir}{Character string filepath to the working directory where the
 original shape files are located. This working directory must contain a
-folder named ./site_vectors" which contains the individual shape files for
+folder named "site_vectors" which contains the individual shape files for
 extraction.}
 
 \item{imdir}{Character string filepath to the path/row level for imagery.}
