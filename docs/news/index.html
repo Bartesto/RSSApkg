@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Authors • RSSApkg</title>
+<title>All news • RSSApkg</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -20,9 +20,9 @@
 
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script>
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../jquery.sticky-kit.min.js"></script>
+<script src="../pkgdown.js"></script>
   
   
 <!-- mathjax -->
@@ -37,7 +37,7 @@
   </head>
 
   <body>
-    <div class="container template-authors">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -47,18 +47,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">RSSApkg</a>
+      <a class="navbar-brand" href="../index.html">RSSApkg</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="/index.html">
+  <a href="..//index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -68,21 +68,21 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/extractR.html">Extract satellite data for feature locations</a>
+      <a href="../articles/extractR.html">Extract satellite data for feature locations</a>
     </li>
     <li>
-      <a href="articles/jpegR.html">Create quality assessment jpegs</a>
+      <a href="../articles/jpegR.html">Create quality assessment jpegs</a>
     </li>
     <li>
-      <a href="articles/Satellite-Data_Extraction.html">Satellite data extraction workflow</a>
+      <a href="../articles/Satellite-Data_Extraction.html">Satellite data extraction workflow</a>
     </li>
     <li>
-      <a href="articles/Using the RSSApkg.html">Using the RSSApkg</a>
+      <a href="../articles/Using the RSSApkg.html">Using the RSSApkg</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="news/index.html">News</a>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       
@@ -102,22 +102,48 @@
       </header>
 
       <div class="row">
-  <div class="contents col-md-12">
+
+  <div class="col-md-9">
     <div class="page-header">
-      <h1>Authors</h1>
+      <h1>Change log <small>All releases</small></h1>
     </div>
 
-    <ul class="list-unstyled">
-      <li>
-        <p><strong>Bart Huntley</strong>. Author, maintainer.
-        </p>
-      </li>
-    </ul>
+    <div class="contents">
+    <div id="rssapkg-1-0-0" class="section level1">
+<h1 class="hasAnchor">
+<a href="#rssapkg-1-0-0" class="anchor"></a>RSSApkg 1.0.0</h1>
+<ul>
+<li>Initial release of RSSApkg.</li>
+<li>Reworking of <code>jpegR</code> to:
+<ul>
+<li>enable begining and end dates to target analysis period.</li>
+<li>output a small text file with name of original shape file.</li>
+<li>split original shape file and store in new folder named <code>site_vectors</code>.</li>
+<li>clean code and improve speed.</li>
+</ul>
+</li>
+<li>Reworking of <code>extractR</code> to:
+<ul>
+<li>restrict min and max of dates in csv output to those utilised.</li>
+<li>clean code and improve speed.</li>
+</ul>
+</li>
+<li>Access to internal helper functions now grouped as utility functions and includes <code>u_dateR</code>, <code>u_leapR</code> and <code>u_shpsplitR</code>.</li>
+</ul>
+</div>
+    </div>
+  </div>
 
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#rssapkg-1-0-0">1.0.0</a></li>
+      </ul>
+    </div>
   </div>
 
 </div>
-
 
       <footer>
       <div class="copyright">
