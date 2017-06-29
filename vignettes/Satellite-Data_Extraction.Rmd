@@ -57,7 +57,7 @@ Next task is to run the `jpegR` function from the __RSSApkg__.
 ```{r, eval = FALSE}
 ## Install the RSSApkg if you haven't already
 library("devtools")
-install_github("Bartesto/RSSApkg")
+install_github("RSPaW/RSSApkg")
 library("RSSApkg")
 
 ## Set up function arguments
