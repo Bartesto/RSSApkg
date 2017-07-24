@@ -103,8 +103,13 @@ jpegR <- function(wdir, imdir, layer, attrb, start=NA, stop=NA, combo,
       img <- todo[j, "path"]
       rstack <- raster::stack(img)
       jpeg(filename = fname, width = 842, height = 870)
-      raster::plotRGB(rstack, r = combo[1], g = combo[2], combo[3],
-                      ext = ext, stretch = "lin")
+      tryCatch({
+        expr = raster::plotRGB(rstack, r = combo[1], g = combo[2], b = combo[3],
+                               ext = ext, stretch = "lin")},
+        error = function(i){raster::plotRGB(rstack, r = combo[1], g = combo[2], 
+                                            b = combo[3], ext = ext)
+          message("Very cloudy at this extent")
+      })
       raster::plot(shp_t, add = TRUE, lwd = 2, border = "magenta")
       dev.off()
     }
