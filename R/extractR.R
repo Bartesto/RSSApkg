@@ -65,10 +65,10 @@ extractR <- function(wdir, imdir, option, attrb){
   
   #copy shape files to relevant QA folders
   shpfiles <- list.files(path = vfold, pattern = "*.shp$")
-  shpnames <- unlist(strsplit(shpfiles, split = "\\.")) [c(TRUE, FALSE)]
+  shpnames <- unlist(strsplit(shpfiles, split = "[.]")) [c(TRUE, FALSE)]
   for (i in seq_along(shpnames)){
     shp <- shpnames[i]
-    patt1 <- paste0("^", shp, "\\.")
+    patt1 <- paste0("^", shp, "[.]")
     shps <- list.files(path = vfold, pattern = patt1)
     from <- paste0(vfold, "/", shps)
     patt2 <- paste0("site_", shp, "_")
