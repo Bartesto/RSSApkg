@@ -24,7 +24,7 @@
 
 u_leapR <- function(path){
   allfiles <- list.files(path = path, recursive = TRUE)
-  result <- allfiles[grepl("*pre.ers", allfiles)]
+  result <- allfiles[grepl("*pre.ers$", allfiles)]
   result <- result[!grepl("^[a-zA-Z]", result)]
   #date for folder
   fold <- substr(result, 1, 8)

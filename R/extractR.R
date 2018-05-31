@@ -103,7 +103,7 @@ extractR <- function(wdir, imdir, option, attrb){
     end <- substrRight(jlist[[k]][length(jlist[[k]])], 8)
     
     #make sure same projections (shape to raster)
-    rfile <- list.files(path = jlist[[1]][1], pattern = "pre.ers",
+    rfile <- list.files(path = jlist[[1]][1], pattern = "*pre.ers$",
                         full.names = TRUE)[1]
     rastproj <- raster::crs(raster::raster(rfile))
     sitesSHPt <- sp::spTransform(sitesSHP, rastproj)
@@ -119,7 +119,7 @@ extractR <- function(wdir, imdir, option, attrb){
     for (m in seq_along(jlist[k][[1]])){
       
       #image file name
-      imfile <- list.files(path = jlist[k][[1]][m], pattern = "pre.ers",
+      imfile <- list.files(path = jlist[k][[1]][m], pattern = "*pre.ers$",
                            full.names = TRUE)
       
       #make sure only one pre and return complete path
